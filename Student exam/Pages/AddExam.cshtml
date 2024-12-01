@@ -1,0 +1,26 @@
+﻿@page
+@model Student_exam.Pages.AddExamModel
+@{
+    ViewData["Title"] = "Add New Exam";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ExamName">نام انتحان</label>
+        <input type="text" id="ExamName" name="ExamName" class="form-control" required />
+    </div>
+
+    <div class="form-group">تاریخ شروع</label>
+        <input type="datetime-local" id="StartDate" name="StartDate" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Duration">طول برگزاری</label>
+        <input type="number" id="Duration" name="Duration" class="form-control" required />
+    </div>
+     
+
+    <button type="submit" class="btn btn-primary">ثبت امتحان </button>
+</form>

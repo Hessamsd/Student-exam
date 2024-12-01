@@ -13,9 +13,22 @@ namespace Infrastructur.Repository
             _context = context;
         }
 
+        public async Task AddNewExamAsync(Exam newExam)
+        {
+            _context.Exams.Add(newExam); 
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<List<Exam>> GetAllExamAsync()
         {
             return await _context.Exams.ToListAsync();
+        }
+
+        public async Task<List<Exam>> GetAllExamsAsync()
+        {
+            return await _context.Exams
+                           .Include(e => e.Questions)  
+                           .ToListAsync();
         }
 
         public async Task<Exam> GetExamByIdAsync(int id)

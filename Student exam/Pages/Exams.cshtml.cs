@@ -14,23 +14,25 @@ namespace Student_exam.Pages
             _application = application;
         }
 
-        public Exam Exam { get; set; }
+        public List<Exam> Exams { get; set; } 
+
         [BindProperty]
         public Dictionary<int, List<int>> Answers { get; set; }
 
-        public async Task OnGetAsync(int examId)
+        public async Task OnGetAsync()
         {
-            Exam = await _application.GetExamByIdAsync(examId);
+            
+            Exams = await _application.GetAllExamsAsync();
         }
 
         public async Task<IActionResult> OnPostAsync(int examId)
         {
-            var studentId = 1; 
+            var studentId = 1;
             var success = await _application.SubmitAnswersAsync(examId, studentId, Answers);
 
             if (success)
             {
-                return RedirectToPage("/Exams/ExamSubmitted");
+                return RedirectToPage("ExamSubmitted");
             }
 
             return Page();

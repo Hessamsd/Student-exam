@@ -1,39 +1,26 @@
 ﻿@page
 @model Student_exam.Pages.ExamsModel
 @{
-    ViewData["Title"] = "Exams";
+    ViewData["Title"] = "لیست امتحانات ";
 }
 
 <h2>@ViewData["Title"]</h2>
 
 <div class="exam-container">
-    <h3>Exam: @Model.Exam.ExamName</h3>
-    <p>Start Date: @Model.Exam.StartDate.ToString("yyyy-MM-dd HH:mm")</p>
-    <p>Time Limit: @Model.Exam.Duration minutes</p>
+   
 
-    <form method="post">
-        <div class="questions-container">
-            @foreach (var question in Model.Exam.Questions)
-            {
-                <div class="question-item">
-                    <h4>@question.QuestionText</h4>
+    <div class="exam-list">
+        @foreach (var exam in Model.Exams)
+        {
+            <div class="exam-item">
+                <h4>@exam.ExamName</h4>
+                <p>Start Date: @exam.StartDate.ToString("yyyy-MM-dd HH:mm")</p>
+                <p>Time Limit: @exam.Duration minutes</p>
+            </div>
+        }
+    </div>
 
-                    <div class="options">
-                        @foreach (var option in question.Options)
-                        {
-                            <div class="option">
-                                <input type="checkbox" id="option_@question.QuestionId@option.OptionId"
-                                       name="Answers[@question.QuestionId]" value="@option.OptionId" />
-                                <label for="option_@question.QuestionId@option.OptionId">
-                                    @option.OptionText
-                                </label>
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
-        </div>
 
-        <button type="submit" class="btn btn-primary">Submit Exam</button>
-    </form>
+    <a href="/AddExam" class="btn btn-success">اضافه کردن امتحان جدید</a>
 </div>
+

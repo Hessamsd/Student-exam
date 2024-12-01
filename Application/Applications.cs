@@ -14,6 +14,16 @@ namespace Application
             _studentRepository = studentRepository;
         }
 
+        public async Task AddNewExamAsync(Exam newExam)
+        {
+            await _examRepository.AddNewExamAsync(newExam);
+        }
+
+        public async Task<List<Exam>> GetAllExamsAsync()
+        {
+            return await _examRepository.GetAllExamsAsync();
+        }
+
         public async Task<Exam> GetExamByIdAsync(int examId)
         {
             return await _examRepository.GetExamByIdAsync(examId);

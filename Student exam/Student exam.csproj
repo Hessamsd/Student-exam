@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\ExamSubmitted.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -29,16 +25,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\AddExam.cshtml" />
     <_ContentIncludedByDefault Remove="Pages\ExamDetail.cshtml" />
     <_ContentIncludedByDefault Remove="Pages\ExamSubmitted.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\ExamSubmitted.cshtml" />
+    <UpToDateCheckInput Remove="Pages\ExamDetail.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\ExamDetail.cshtml" />
+    <UpToDateCheckInput Remove="Pages\AddExam.cshtml" />
   </ItemGroup>
 
 </Project>
