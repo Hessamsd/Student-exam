@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domin", "Domin\Domin.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{88982170-5584-4D8A-9F9C-8C5705DC14DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{59D2C5DC-C868-4C4F-A673-ED52612D4565}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructur", "Repository\Infrastructur.csproj", "{59D2C5DC-C868-4C4F-A673-ED52612D4565}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
