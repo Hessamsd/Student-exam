@@ -22,7 +22,6 @@
                         @foreach (var option in question.Options)
                         {
                             <div class="option">
-                                
                                 <input type="checkbox" id="option_@question.QuestionId@option.OptionId"
                                        name="Answers[@question.QuestionId]" value="@option.OptionId" />
                                 <label for="option_@question.QuestionId@option.OptionId">

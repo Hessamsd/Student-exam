@@ -1,0 +1,28 @@
+﻿@page
+@model Student_exam.Pages.ExamDetailModel
+@{
+    ViewData["Title"] = "جزئیات امتحان";
+}
+
+<h1>لطفاً آیدی امتحان را وارد کنید</h1>
+
+<form method="get">
+    <div>
+        <label for="examId">آیدی امتحان:</label>
+        <input type="number" id="examId" name="examId" required />
+    </div>
+    <button type="submit">ارسال</button>
+</form>
+
+@if (Model.Exam != null)
+{
+    <h2>جزئیات امتحان</h2>
+    <p><strong>نام امتحان:</strong> @Model.Exam.ExamName</p>
+    <p><strong>تاریخ شروع:</strong> @Model.Exam.StartDate.ToString("yyyy-MM-dd HH:mm")</p>
+    <p><strong>مدت زمان:</strong> @Model.Exam.Duration minutes</p>
+    <a href="@Url.Page("/Exams", new { examId = Model.Exam.ExamId })">شروع امتحان</a>
+}
+else if (Model.ExamId != 0)
+{
+    <p>امتحانی با این آیدی پیدا نشد.</p>
+}

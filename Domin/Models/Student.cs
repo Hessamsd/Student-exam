@@ -6,6 +6,7 @@
 
         public string StudentName { get; set; }
         public int GroupId { get; set; }
+        public Group Group { get; set; }
 
         public ICollection<Answer> Answers { get; set; }
     }

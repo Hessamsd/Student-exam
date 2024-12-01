@@ -29,11 +29,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\ExamDetail.cshtml" />
     <_ContentIncludedByDefault Remove="Pages\ExamSubmitted.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\ExamSubmitted.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\ExamDetail.cshtml" />
   </ItemGroup>
 
 </Project>

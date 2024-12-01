@@ -5,6 +5,7 @@
         public int GroupId { get; set; }
         public string GroupName { get; set; }
 
-        public ICollection<Student> students { get; set; }
+        public ICollection<Student> Students { get; set; }
+        public ICollection<Exam> Exams { get; set; }
     }
 }

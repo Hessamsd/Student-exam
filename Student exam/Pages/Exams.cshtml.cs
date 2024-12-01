@@ -1,4 +1,4 @@
-using Application;
+﻿using Application;
 using Domin.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,15 +9,14 @@ namespace Student_exam.Pages
     {
         private readonly IApplication _application;
 
-
-        public Exam Exam { get; set; }
-        [BindProperty]
-        public Dictionary<int, List<int>> Answers { get; set; }
-
         public ExamsModel(IApplication application)
         {
             _application = application;
         }
+
+        public Exam Exam { get; set; }
+        [BindProperty]
+        public Dictionary<int, List<int>> Answers { get; set; }
 
         public async Task OnGetAsync(int examId)
         {

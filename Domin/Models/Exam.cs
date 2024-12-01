@@ -8,6 +8,7 @@
         public TimeSpan Duration { get; set; }
 
         public int GroupId { get; set; }
+        public Group Group { get; set; }
 
         public  ICollection<Question> Questions { get; set; }
     }

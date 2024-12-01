@@ -1,5 +1,8 @@
 ﻿using Domin.Models;
+using Infrastructur.Mapping;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Options;
 
 namespace Infrastructur
 {
@@ -16,6 +19,30 @@ namespace Infrastructur
 
         public AppDbContext(DbContextOptions options) : base(options)
         {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+         
+            optionsBuilder.ConfigureWarnings(warnings =>
+                warnings.Ignore(RelationalEventId.PendingModelChangesWarning)
+            );
+        }
+
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+
+            var assembly = typeof(AnswerMapping).Assembly;
+            modelBuilder.ApplyConfigurationsFromAssembly(assembly);
+
+            base.OnModelCreating(modelBuilder);
+                             
+
         }
     }
 }
