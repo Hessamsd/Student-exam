@@ -9,6 +9,6 @@
 
         public int GroupId { get; set; }
 
-        //public ICollection<Questions>
+        public  ICollection<Question> Questions { get; set; }
     }
 }

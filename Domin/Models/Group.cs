@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domin.Models
+﻿namespace Domin.Models
 {
-    internal class Group
+    public class Group
     {
+        public int GroupId { get; set; }
+        public string GroupName { get; set; }
+
+        public ICollection<Student> students { get; set; }
     }
 }
