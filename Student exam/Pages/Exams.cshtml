@@ -1,4 +1,40 @@
 ﻿@page
 @model Student_exam.Pages.ExamsModel
 @{
+    ViewData["Title"] = "Exams";
 }
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="exam-container">
+    <h3>Exam: @Model.Exam.ExamName</h3>
+    <p>Start Date: @Model.Exam.StartDate.ToString("yyyy-MM-dd HH:mm")</p>
+    <p>Time Limit: @Model.Exam.Duration minutes</p>
+
+    <form method="post">
+        <div class="questions-container">
+            @foreach (var question in Model.Exam.Questions)
+            {
+                <div class="question-item">
+                    <h4>@question.QuestionText</h4>
+
+                    <div class="options">
+                        @foreach (var option in question.Options)
+                        {
+                            <div class="option">
+                                
+                                <input type="checkbox" id="option_@question.QuestionId@option.OptionId"
+                                       name="Answers[@question.QuestionId]" value="@option.OptionId" />
+                                <label for="option_@question.QuestionId@option.OptionId">
+                                    @option.OptionText
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Exam</button>
+    </form>
+</div>

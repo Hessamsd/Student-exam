@@ -1,7 +1,24 @@
+using Application;
+using Domin.Models;
+using Infrastructur;
+using Infrastructur.Repository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<IApplication, Applications>();
+
+
+builder.Services.AddScoped<IExamRepository, ExamRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 var app = builder.Build();
 

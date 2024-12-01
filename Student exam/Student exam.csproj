@@ -8,11 +8,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\ExamSubmitted.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Repository\Infrastructur.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\ExamSubmitted.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\ExamSubmitted.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\ExamSubmitted.cshtml" />
   </ItemGroup>
 
 </Project>
